@@ -35,26 +35,6 @@ main {
     font-size: 36px;
 }
 
-svg {
-    vertical-align: middle;
-    padding-left: 30px;
-    padding-right: 10px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allow form to grow and fill space */
-    justify-content: center; /* Center content vertically within the form */
-    background-color: var(--foreground);
-    padding: 50px; /* Standardized padding */
-    border-radius: 50px;
-    border: 3px solid var(--border);
-    text-align: center;
-    margin: 0 70px 70px 70px; /* Standardized margins */
-    max-width: none; /* Remove max-width to allow it to fill dual-right */
-}
-
 .basic-box {
     background-color: var(--foreground);
     padding: 50px; /* Standardized padding */
@@ -94,31 +74,24 @@ button {
     transition: background-color 0.3s ease;
 }
 
-.split-container {
+svg {
+    vertical-align: middle;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+form {
     display: flex;
-}
-
-.dual-container {
-    display: flex;
-    align-items: stretch; /* Ensure children stretch to equal height */
-    padding: 70px 0 0 0; /* Standardized padding for the container */
-}
-
-.dual-left {
-    flex: 1;
-    display: flex; /* Make dual-left a flex container */
-    flex-direction: column; /* Stack its children vertically */
-}
-
-.dual-right {
-    flex: 2;
-    display: flex; /* Make dual-right a flex container */
-    flex-direction: column; /* Stack its children vertically */
-}
-
-.reviews-container {
-    display: flex;
-    padding: 70px;
+    flex-direction: column;
+    flex-grow: 1; /* Allow form to grow and fill space */
+    justify-content: center; /* Center content vertically within the form */
+    background-color: var(--foreground);
+    padding: 50px; /* Standardized padding */
+    border-radius: 50px;
+    border: 3px solid var(--border);
+    text-align: center;
+    margin: 0 70px 70px 70px; /* Standardized margins */
+    max-width: none; /* Remove max-width to allow it to fill dual-right */
 }
 
 /* Header */
@@ -252,6 +225,17 @@ footer {
 
 /* Home page */
 
+.home-main {
+    display: block;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: var(--foreground);
+    margin: 70px;
+    border-radius: 50px;
+    border: 3px solid var(--border);
+    text-align: center;
+}
+
 /* About page */
 
 .split-left {
@@ -355,6 +339,7 @@ footer {
     border-radius: 25px;
     padding: 30px;
     text-align: center;
+    margin: 50px
 }
 
 .dual-left-r {
@@ -365,4 +350,31 @@ footer {
     flex: 1;
 }
 
+.reviews-container {
+    display: flex;
+    padding: 70px;
+}
+
 /* Contact page */
+
+.split-container {
+    display: flex;
+}
+
+.dual-container {
+    display: flex;
+    align-items: stretch; /* Ensure children stretch to equal height */
+    padding: 70px 0 0 0; /* Standardized padding for the container */
+}
+
+.dual-left {
+    flex: 1;
+    display: flex; /* Make dual-left a flex container */
+    flex-direction: column; /* Stack its children vertically */
+}
+
+.dual-right {
+    flex: 2;
+    display: flex; /* Make dual-right a flex container */
+    flex-direction: column; /* Stack its children vertically */
+}

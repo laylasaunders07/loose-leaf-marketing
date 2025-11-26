@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         circle.style.borderWidth = baseBorderWidth + 'px';
                     }
                 });
+                
+                if (window.innerWidth <= 768) {
+                    const activeWrapper = document.querySelector('.circle-wrapper-large');
+                    if (activeWrapper) {
+                        activeWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
             }
         });
     }, options);

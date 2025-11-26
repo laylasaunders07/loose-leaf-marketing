@@ -276,6 +276,7 @@ footer {
     transition: transform 0.3s ease-in-out, border-width 0.3s ease-in-out; /* Add border-width to transition */
     transform: scale(1) translateZ(0); /* translateZ for Safari performance */
     border: 3px solid var(--border); /* Reverted to border */
+    position: relative; /* Required for z-index to work */
 }
 
 .circle-wrapper-small {
@@ -289,8 +290,9 @@ footer {
 }
 
 .circle.active {
-    transform: scale(4) translateZ(0); /* Increased active size */
-    -webkit-transform: scale(4) translateZ(0); /* Safari prefix */
+    transform: scale(2.5) translateZ(0); /* Reduced active size to prevent clipping */
+    -webkit-transform: scale(2.5) translateZ(0); /* Safari prefix */
+    z-index: 10; /* Bring active circle to foreground */
 }
 
 .circle img {
@@ -377,4 +379,113 @@ footer {
     flex: 2;
     display: flex; /* Make dual-right a flex container */
     flex-direction: column; /* Stack its children vertically */
+}
+
+/* Mobile Support */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .header-link {
+        padding: 10px 0;
+    }
+
+    .dual-container,
+    .reviews-container,
+    .footer-container {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .split-container {
+        flex-direction: column;
+    }
+
+    .dual-left,
+    .dual-right,
+    .footer-left,
+    .footer-right,
+    .dual-left-r,
+    .dual-right-r {
+        flex: 1 1 100%;
+        margin: 0;
+    }
+
+    .basic-box, form {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    /* About page mobile */
+    .split-container {
+        height: calc(100vh - 140px); /* Adjust for header/footer */
+    }
+
+    .split-left {
+        position: static;
+        height: auto;
+        order: 1;
+        border-bottom: 3px solid var(--border);
+        flex: none; /* Do not grow or shrink */
+    }
+    
+    .split-right {
+        order: 2;
+        flex-grow: 1;
+        overflow-y: auto;
+        flex: 1; /* take remaining space */
+    }
+
+    .circle-container {
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 20px;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        height: auto;
+        align-items: center; /* Vertically align circles */
+    }
+
+    .circle-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    .circle {
+        width: 20vw;
+        height: 20vw;
+        max-width: 100px;
+        max-height: 100px;
+        min-width: 50px; /* prevent from getting too small */
+        min-height: 50px;
+    }
+
+    .circle-wrapper-small {
+        padding: 10px 10px;
+    }
+    
+    .circle-wrapper-large {
+        padding: 10px 2vw; /* dynamic padding, reduced for better fit */
+    }
+
+    .circle.active {
+        transform: scale(1.5) translateZ(0);
+        -webkit-transform: scale(1.5) translateZ(0);
+        z-index: 10; /* Bring active circle to foreground */
+    }
+
+    .reviews-grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .review-box {
+        margin: 20px;
+    }
+
+    .reviews-container {
+        padding: 0;
+    }
 }
